@@ -1,0 +1,29 @@
+<section id="contenedorLogin">
+    <div class="cajaLogin">
+        <h2>Iniciar Sesión</h2>
+
+        <form (ngSubmit)="iniciarSesion()">
+            <label for="nombreUsuario">Usuario</label>
+            <input
+                id="nombreUsuario"
+                type="text"
+                name="nombreUsuario"
+                [(ngModel)]="nombreUsuario"
+                autocomplete="username">
+
+            <label for="claveUsuario">Contraseña</label>
+            <input
+                id="claveUsuario"
+                type="password"
+                name="claveUsuario"
+                [(ngModel)]="claveUsuario"
+                autocomplete="current-password">
+
+            <p class="mensajeError" *ngIf="mensajeError()">{{ mensajeError() }}</p>
+
+            <button type="submit" [disabled]="cargando()">
+                {{ cargando() ? 'Ingresando...' : 'Iniciar Sesión' }}
+            </button>
+        </form>
+    </div>
+</section>

@@ -13,15 +13,17 @@
         <div>
             <h2>Datos</h2>
             <section>
-                <table class="tablaDatos">
+                <p *ngIf="cargando()">Cargando datos...</p>
+                <p *ngIf="errorCarga()">{{ errorCarga() }}</p>
+                <table class="tablaDatos" *ngIf="!cargando() && !errorCarga()">
                     <thead>
                         <tr>
                             <th>Nombre</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let dato of listaDatos"
-                            [class.seleccionada]="filaSeleccionada?.idDato === dato.idDato"
+                        <tr *ngFor="let dato of listaDatos()"
+                            [class.seleccionada]="filaSeleccionada()?.idDato === dato.idDato"
                             (click)="seleccionarFila(dato)">
                             <td>{{ dato.nombreDato }}</td>
                         </tr>
