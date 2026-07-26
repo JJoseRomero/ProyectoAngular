@@ -1,26 +1,43 @@
- <section id="contenedor">
-        <header>
-            <img src="logo.png" alt="Logo">
-            <h2>Frames</h2>
-            <ul>
-                <li><a>Nuevo Usuario</a></li>
-                <li><a>Bitacora</a></li>
-            </ul>    
-        </header>
-        <section id="main">
-            <div>
-                <h2> DATOS </h2>
-                <section>
-                </section>
-            </div>
-            <div>
-                <button class="btnInfo">Nuevo</button>
-                <button class="btnInfo">Desplegar</button>
-                <button class="btnInfo">Editar</button>
-                <button class="btnInfo">Eliminar</button>
-            </div>
-        </section>
-        <footer>
-            Hola Footer
-        </footer>    
+<section id="contenedor">
+    <header>
+        <!-- Aquí colocarás tu propia imagen/logo, por ejemplo: assets/logo.png -->
+        <img src="assets/logo.png" alt="Logo">
+        <h2>Frameworks</h2>
+        <ul>
+            <li><a>Nuevo Usuario</a></li>
+            <li><a>Bitacora</a></li>
+        </ul>
+    </header>
+
+    <section id="main">
+        <div>
+            <h2>Datos</h2>
+            <section>
+                <table class="tablaDatos">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dato of listaDatos"
+                            [class.seleccionada]="filaSeleccionada?.idDato === dato.idDato"
+                            (click)="seleccionarFila(dato)">
+                            <td>{{ dato.nombreDato }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div>
+            <button class="btnInfo">Nuevo</button>
+            <button class="btnInfo">Desplegar</button>
+            <button class="btnInfo">Editar</button>
+            <button class="btnInfo">Eliminar</button>
+        </div>
     </section>
+
+    <footer>
+        Usuario <strong>{{ nombreUsuario }}</strong>
+    </footer>
+</section>
