@@ -1,0 +1,7 @@
+export const PERMISOS = {
+  ADMINISTRADOR: 1,
+  NUEVO_DATO: 2,
+  DESPLEGAR: 4,
+  EDITAR: 8,
+  ELIMINAR: 16
+};

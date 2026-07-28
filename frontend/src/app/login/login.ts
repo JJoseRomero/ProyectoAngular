@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,11 @@ export class Login {
   mensajeError = signal<string | null>(null);
   cargando = signal<boolean>(false);
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   iniciarSesion(): void {
     this.mensajeError.set(null);
@@ -31,9 +36,9 @@ export class Login {
     this.cargando.set(true);
 
     this.loginService.iniciarSesion(this.nombreUsuario, this.claveUsuario).subscribe({
-      next: () => {
+      next: (respuesta: any) => {
         this.cargando.set(false);
-        // Login correcto -> se manda a la ventana de Datos
+        this.authService.establecerUsuario(respuesta.usuario);
         this.router.navigate(['/tabla']);
       },
       error: (err) => {

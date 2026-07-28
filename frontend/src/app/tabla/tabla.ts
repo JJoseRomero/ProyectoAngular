@@ -1,31 +1,37 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Dato, DatosService } from './datos.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-tabla',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './tabla.html',
   styleUrl: './tabla.css'
 })
 export class Tabla implements OnInit {
 
-  // Usuario que inició sesión (vendrá del login / servicio de autenticación)
-  nombreUsuario: string = 'Maria del Carmen Perez';
+  nombreUsuario: string = '';
 
   listaDatos = signal<Dato[]>([]);
   filaSeleccionada = signal<Dato | null>(null);
   cargando = signal<boolean>(true);
   errorCarga = signal<string | null>(null);
 
-  constructor(private datosService: DatosService) {}
+  constructor(
+    private datosService: DatosService,
+    public authService: AuthService
+  ) {}
 
   ngOnInit(): void {
+    this.authService.cargarDeSesion();
+    this.nombreUsuario = this.authService.usuarioActual()?.nombreUsuario ?? '';
+
     this.cargando.set(true);
     this.datosService.obtenerDatos().subscribe({
       next: (datos) => {
-        console.log('Datos recibidos:', datos);
         this.listaDatos.set(datos);
         this.cargando.set(false);
       },

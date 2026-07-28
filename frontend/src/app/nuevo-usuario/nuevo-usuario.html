@@ -1,0 +1,48 @@
+<section id="contenedor">
+    <div class="encabezado">
+        <h2>Nuevo usuario</h2>
+    </div>
+
+    <div class="cuerpo">
+        <div class="columna">
+            <label for="usuario">usuario</label>
+            <div class="inputConIcono">
+                <span class="icono">👤</span>
+                <input
+                    id="usuario"
+                    type="text"
+                    [(ngModel)]="usuario"
+                    placeholder="nombre del usuario">
+            </div>
+
+            <label for="contrasena">Contraseña</label>
+            <div class="inputConIcono">
+                <input
+                    id="contrasena"
+                    [type]="mostrarContrasena ? 'text' : 'password'"
+                    [(ngModel)]="contrasena">
+                <span class="iconoOjo" (click)="toggleContrasena()">👁</span>
+            </div>
+        </div>
+
+        <div class="columna">
+            <h3>Privilegios</h3>
+            <div class="gridPrivilegios">
+                <label><input type="checkbox" [(ngModel)]="privilegios.nuevoDato"> Nuevo dato</label>
+                <label><input type="checkbox" [(ngModel)]="privilegios.administrador"> Administrador</label>
+                <label><input type="checkbox" [(ngModel)]="privilegios.desplegar"> Desplegar</label>
+                <label><input type="checkbox" [(ngModel)]="privilegios.editar"> Editar</label>
+                <label><input type="checkbox" [(ngModel)]="privilegios.eliminar"> Eliminar</label>
+            </div>
+        </div>
+    </div>
+
+    <p class="mensajeError" *ngIf="mensajeError()">{{ mensajeError() }}</p>
+    <p class="mensajeExito" *ngIf="mensajeExito()">{{ mensajeExito() }}</p>
+
+    <div class="pieBoton">
+        <button class="btnAlmacenar" (click)="almacenar()" [disabled]="guardando()">
+            {{ guardando() ? 'Guardando...' : 'Almacenar' }}
+        </button>
+    </div>
+</section>

@@ -1,10 +1,14 @@
 <section id="contenedor">
     <header>
-        <!-- Aquí colocarás tu propia imagen/logo, por ejemplo: assets/logo.png -->
         <img src="assets/logo.png" alt="Logo">
         <h2>Frameworks</h2>
         <ul>
-            <li><a>Nuevo Usuario</a></li>
+            <li>
+                <a [routerLink]="authService.esAdministrador() ? '/nuevo-usuario' : null"
+                   [class.deshabilitado]="!authService.esAdministrador()">
+                    Nuevo Usuario
+                </a>
+            </li>
             <li><a>Bitacora</a></li>
         </ul>
     </header>
@@ -32,10 +36,10 @@
             </section>
         </div>
         <div>
-            <button class="btnInfo">Nuevo</button>
-            <button class="btnInfo">Desplegar</button>
-            <button class="btnInfo">Editar</button>
-            <button class="btnInfo">Eliminar</button>
+            <button class="btnInfo" [disabled]="!authService.puedeNuevoDato()">Nuevo</button>
+            <button class="btnInfo" [disabled]="!authService.puedeDesplegar()">Desplegar</button>
+            <button class="btnInfo" [disabled]="!authService.puedeEditar()">Editar</button>
+            <button class="btnInfo" [disabled]="!authService.puedeEliminar()">Eliminar</button>
         </div>
     </section>
 
