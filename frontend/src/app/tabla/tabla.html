@@ -1,6 +1,6 @@
 <section id="contenedor">
     <header>
-        <img src="assets/logo.png" alt="Logo">
+        <img src="Ohtani_Judge.webp" alt="Logo">
         <h2>Frameworks</h2>
         <ul>
             <li>
@@ -13,8 +13,9 @@
         </ul>
     </header>
 
-    <section id="main">
-        <div>
+    <!-- ---------- VISTA: TABLA DE DATOS ---------- -->
+    <section id="main" *ngIf="!mostrarInformacion()">
+        <div class="panelDatos">
             <h2>Datos</h2>
             <section>
                 <p *ngIf="cargando()">Cargando datos...</p>
@@ -35,11 +36,63 @@
                 </table>
             </section>
         </div>
-        <div>
+        <div class="panelBotones">
             <button class="btnInfo" [disabled]="!authService.puedeNuevoDato()">Nuevo</button>
-            <button class="btnInfo" [disabled]="!authService.puedeDesplegar()">Desplegar</button>
+            <button class="btnInfo"
+                    [disabled]="!authService.puedeDesplegar() || !filaSeleccionada()"
+                    (click)="desplegarInformacion()">
+                Desplegar
+            </button>
             <button class="btnInfo" [disabled]="!authService.puedeEditar()">Editar</button>
             <button class="btnInfo" [disabled]="!authService.puedeEliminar()">Eliminar</button>
+        </div>
+    </section>
+
+    <!-- ---------- VISTA: INFORMACIÓN DEL DATO SELECCIONADO ---------- -->
+    <section id="main" *ngIf="mostrarInformacion()">
+        <div class="panelInformacion">
+            <div class="encabezadoInfo">Información - Datos</div>
+
+            <div class="cuerpoInfo">
+                <div class="columnaInfo">
+                    <div class="campoInfo">
+                        <span class="etiquetaInfo">Nombre</span>
+                        <span class="valorInfo">{{ filaSeleccionada()?.nombreDato }}</span>
+                    </div>
+                    <div class="campoInfo">
+                        <span class="etiquetaInfo">Edad</span>
+                        <span class="valorInfo">{{ filaSeleccionada()?.edadDato }}</span>
+                    </div>
+                    <div class="campoInfo">
+                        <span class="etiquetaInfo">Correo</span>
+                        <span class="valorInfo">{{ filaSeleccionada()?.correoDato }}</span>
+                    </div>
+                </div>
+
+                <div class="columnaInfo">
+                    <div class="campoInfo">
+                        <span class="etiquetaInfo">Fecha de Nacimiento</span>
+                        <span class="valorInfo">{{ filaSeleccionada()?.fechaNacimientoDato | date:'dd-MM-yyyy' }}</span>
+                    </div>
+                    <div class="campoInfo">
+                        <span class="etiquetaInfo">Sexo</span>
+                        <span class="opcionesSexo">
+                            <label>
+                                <input type="radio" [checked]="filaSeleccionada()?.sexoDato === 0" disabled>
+                                Mujer
+                            </label>
+                            <label>
+                                <input type="radio" [checked]="filaSeleccionada()?.sexoDato === 1" disabled>
+                                Hombre
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pieInfo">
+                <button class="btnRegresar" (click)="regresar()">Regresar</button>
+            </div>
         </div>
     </section>
 

@@ -14,21 +14,21 @@
     max-width: 700px;
     margin: 4vh auto;
     background-color: #ffffff;
-    border: 2px solid #1a2a6c;
+    border: 2px solid #0c2340;
     border-radius: 6px;
     overflow: hidden;
 }
 
 .encabezado {
     background-color: #ffffff;
-    border-bottom: 2px solid #1a2a6c;
+    border-bottom: 2px solid #0c2340;
     padding: 1rem 1.5rem;
 }
 
 .encabezado h2 {
     font-size: 1.6rem;
     font-weight: bold;
-    color: #000000;
+    color: #0c2340;
 }
 
 .cuerpo {
@@ -47,19 +47,19 @@
 
 .columna label {
     font-size: 1rem;
-    color: #000000;
+    color: #0c2340;
 }
 
 .columna h3 {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #000000;
+    color: #0c2340;
 }
 
 .inputConIcono {
     display: flex;
     align-items: center;
-    border: 1px solid #bdbdbd;
+    border: 1px solid #c4ced4;
     border-radius: 4px;
     padding: 0.5rem 0.7rem;
 }
@@ -71,6 +71,7 @@
     margin-left: 0.5rem;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.95rem;
+    color: #0c2340;
 }
 
 .icono,
@@ -91,7 +92,7 @@
 }
 
 .gridPrivilegios input[type="checkbox"] {
-    accent-color: #16b6c4;
+    accent-color: #005a9c;
     width: 16px;
     height: 16px;
 }
@@ -103,7 +104,7 @@
 }
 
 .btnAlmacenar {
-    background-color: #16b6c4;
+    background-color: #005a9c;
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -114,30 +115,22 @@
 }
 
 .btnAlmacenar:hover {
-    background-color: #0e8b96;
+    background-color: #0c2340;
 }
 
-.checkAdmin {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-}
-
-.checkAdmin input[type="checkbox"] {
-    accent-color: #16b6c4;
-    width: 16px;
-    height: 16px;
+.btnAlmacenar:disabled {
+    background-color: #c4ced4;
+    cursor: not-allowed;
 }
 
 .mensajeError {
-    color: #c0392b;
+    color: #ef3e42;
     padding: 0 1.5rem;
     font-size: 0.9rem;
 }
 
 .mensajeExito {
-    color: #16b6c4;
+    color: #005a9c;
     padding: 0 1.5rem;
     font-size: 0.9rem;
     font-weight: bold;

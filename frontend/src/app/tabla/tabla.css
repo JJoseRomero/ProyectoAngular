@@ -15,7 +15,7 @@
     height: 95vh;
     margin: 2vh auto;
     background-color: #ffffff;
-    border: 2px solid #1a2a6c;
+    border: 2px solid #0c2340;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@
 #contenedor header {
     height: 130px;
     background-color: #ffffff;
-    border-bottom: 2px solid #1a2a6c;
+    border-bottom: 2px solid #0c2340;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,13 +38,13 @@ header img {
     height: 90px;
     object-fit: cover;
     border-radius: 10px;
-    background-color: #16b6c4;
+    background-color: #005a9c;
 }
 
 header h2 {
     font-size: 2.2rem;
     font-weight: bold;
-    color: #000000;
+    color: #0c2340;
 }
 
 header ul {
@@ -56,14 +56,14 @@ header ul {
 }
 
 header ul a {
-    color: #16b6c4;
+    color: #005a9c;
     text-decoration: underline;
     font-size: 1.1rem;
     cursor: pointer;
 }
 
 header ul a:hover {
-    color: #0e8b96;
+    color: #0c2340;
 }
 
 /* ---------- MAIN ---------- */
@@ -76,23 +76,23 @@ header ul a:hover {
     overflow: hidden;
 }
 
-#main div:first-child {
+.panelDatos {
     width: 70%;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
 
-#main div:first-child h2 {
+.panelDatos h2 {
     font-size: 1.6rem;
     font-weight: bold;
-    color: #000000;
+    color: #0c2340;
 }
 
 #main section {
     flex: 1;
     overflow-y: auto;
-    border: 1px solid #bdbdbd;
+    border: 1px solid #c4ced4;
 }
 
 /* ---------- TABLA DE DATOS ---------- */
@@ -104,7 +104,8 @@ header ul a:hover {
 }
 
 .tablaDatos thead th {
-    background-color: #c7c7c7;
+    background-color: #c4ced4;
+    color: #0c2340;
     text-align: left;
     padding: 0.6rem 0.8rem;
     position: sticky;
@@ -113,7 +114,8 @@ header ul a:hover {
 
 .tablaDatos tbody td {
     padding: 0.4rem 0.8rem;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid #e3e7ea;
+    color: #0c2340;
 }
 
 .tablaDatos tbody tr {
@@ -121,11 +123,11 @@ header ul a:hover {
 }
 
 .tablaDatos tbody tr:hover {
-    background-color: #f0f0f0;
+    background-color: #eef3f7;
 }
 
 .tablaDatos tbody tr.seleccionada {
-    background-color: #16b6c4;
+    background-color: #005a9c;
 }
 
 .tablaDatos tbody tr.seleccionada td {
@@ -134,7 +136,7 @@ header ul a:hover {
 }
 
 /* ---------- BOTONES ---------- */
-#main div:last-child {
+.panelBotones {
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -148,69 +150,135 @@ header ul a:hover {
     height: 70px;
     font-size: 1.4rem;
     font-weight: bold;
-    color: #000000;
-    background-color: #d9d9d9;
+    color: #0c2340;
+    background-color: #c4ced4;
     border: none;
     border-radius: 4px;
 }
 
-/*.btnInfo:first-child {
-    background-color: #16b6c4;
-    color: #ffffff;
-} */
-
 .btnInfo:hover {
-    background-color: aqua;
-    color: white;
+    background-color: #005a9c;
+    color: #ffffff;
     cursor: pointer;
+}
+
+.btnInfo:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btnInfo:disabled:hover {
+    background-color: #c4ced4;
+    color: #0c2340;
+}
+
+.deshabilitado {
+    color: #999999 !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    text-decoration: none;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
     height: 45px;
     background-color: #ffffff;
-    border-top: 2px solid #1a2a6c;
+    border-top: 2px solid #0c2340;
     display: flex;
     align-items: center;
     padding: 0 2.5rem;
     font-size: 1rem;
-    color: #000000;
-}
-
-.btnInfo:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.btnInfo:disabled:hover {
-    background-color: #d9d9d9;
-    color: #000000;
-}
-
-.deshabilitado {
-    color: #999999 !important;
-    cursor: not-allowed;
-    pointer-events: none;
-    text-decoration: none;
-}
-
-.btnInfo:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.btnInfo:disabled:hover {
-    background-color: #d9d9d9;
-    color: #000000;
-}
-
-.deshabilitado {
-    color: #999999 !important;
-    cursor: not-allowed;
-    pointer-events: none;
-    text-decoration: none;
+    color: #0c2340;
 }
 
 footer strong {
     margin-left: 0.4rem;
+}
+
+/* ---------- PANEL INFORMACIÓN - DATOS ---------- */
+.panelInformacion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #c4ced4;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.encabezadoInfo {
+    background-color: #c4ced4;
+    color: #0c2340;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.2rem;
+}
+
+.cuerpoInfo {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 1.5rem;
+}
+
+.columnaInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.campoInfo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+}
+
+.etiquetaInfo {
+    font-size: 1rem;
+    color: #0c2340;
+    white-space: nowrap;
+}
+
+.valorInfo {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0c2340;
+}
+
+.opcionesSexo {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.opcionesSexo label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: bold;
+    color: #0c2340;
+}
+
+.opcionesSexo input[type="radio"] {
+    accent-color: #005a9c;
+}
+
+.pieInfo {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.btnRegresar {
+    background-color: #005a9c;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.7rem 1.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btnRegresar:hover {
+    background-color: #0c2340;
 }

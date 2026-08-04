@@ -22,7 +22,7 @@
     width: 340px;
     padding: 2.5rem;
     background-color: #ffffff;
-    border: 2px solid #1a2a6c;
+    border: 2px solid #0c2340;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@
 .cajaLogin h2 {
     font-size: 1.6rem;
     font-weight: bold;
-    color: #000000;
+    color: #0c2340;
     text-align: center;
     margin-bottom: 0.5rem;
 }
@@ -45,20 +45,21 @@
 
 .cajaLogin label {
     font-size: 0.9rem;
-    color: #000000;
+    color: #0c2340;
 }
 
 .cajaLogin input {
     padding: 0.6rem;
     margin-bottom: 0.8rem;
-    border: 1px solid #bdbdbd;
+    border: 1px solid #c4ced4;
     border-radius: 4px;
     font-size: 1rem;
+    color: #0c2340;
 }
 
 .cajaLogin input:focus {
     outline: none;
-    border-color: #16b6c4;
+    border-color: #005a9c;
 }
 
 .cajaLogin button {
@@ -66,23 +67,23 @@
     font-size: 1.1rem;
     font-weight: bold;
     color: #ffffff;
-    background-color: #16b6c4;
+    background-color: #005a9c;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .cajaLogin button:hover:not(:disabled) {
-    background-color: #0e8b96;
+    background-color: #0c2340;
 }
 
 .cajaLogin button:disabled {
-    background-color: #bdbdbd;
+    background-color: #c4ced4;
     cursor: not-allowed;
 }
 
 .mensajeError {
-    color: #c0392b;
+    color: #ef3e42;
     font-size: 0.9rem;
     text-align: center;
 }

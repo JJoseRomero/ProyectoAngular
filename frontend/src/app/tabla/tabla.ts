@@ -20,6 +20,8 @@ export class Tabla implements OnInit {
   cargando = signal<boolean>(true);
   errorCarga = signal<string | null>(null);
 
+  mostrarInformacion = signal<boolean>(false);
+
   constructor(
     private datosService: DatosService,
     public authService: AuthService
@@ -45,5 +47,15 @@ export class Tabla implements OnInit {
 
   seleccionarFila(dato: Dato): void {
     this.filaSeleccionada.set(dato);
+  }
+
+  desplegarInformacion(): void {
+    if (this.filaSeleccionada()) {
+      this.mostrarInformacion.set(true);
+    }
+  }
+
+  regresar(): void {
+    this.mostrarInformacion.set(false);
   }
 }
