@@ -1,7 +1,7 @@
 <section id="contenedor">
     <header>
         <img src="Ohtani_Judge.webp" alt="Logo">
-        <h2>Frameworks</h2>
+        <h2>ANGULAR</h2>
         <ul>
             <li>
                 <a [routerLink]="authService.esAdministrador() ? '/nuevo-usuario' : null"
@@ -9,7 +9,7 @@
                     Nuevo Usuario
                 </a>
             </li>
-            <li><a>Bitacora</a></li>
+            <li><a [routerLink]="'/bitacora'">Bitacora</a></li>
         </ul>
     </header>
 
